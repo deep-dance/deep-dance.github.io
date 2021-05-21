@@ -3,11 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://deep.dance/categories/</loc>
+    <loc>https://deep.dance/</loc>
+    <lastmod>2019-04-13T22:47:09+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://deep.dance/</loc>
+    <loc>https://deep.dance/impress/</loc>
+    <lastmod>2019-04-13T22:47:09+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://deep.dance/privacy/</loc>
+    <lastmod>2019-04-13T22:47:09+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://deep.dance/categories/</loc>
   </url>
   
   <url>
