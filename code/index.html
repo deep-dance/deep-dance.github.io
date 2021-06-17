@@ -5,27 +5,26 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<meta itemprop="name" content="Explore the Code">
-<meta itemprop="description" content="">
-<meta property="og:title" content="Explore the Code" />
+<meta itemprop="name" content="Read more about the code">
+<meta itemprop="description" content=""><meta property="og:title" content="Read more about the code" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://deep.dance/code/" />
-<meta property="og:updated_time" content="2021-05-17T22:47:09+02:00" /><meta property="og:site_name" content="Deep.Dance" />
+<meta property="og:url" content="https://erak.github.io/deep-dance-website/code/" /><meta property="og:site_name" content="Deep.Dance" />
+
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Explore the Code"/>
+<meta name="twitter:title" content="Read more about the code"/>
 <meta name="twitter:description" content=""/>
 
-	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-	<link rel="manifest" href="/site.webmanifest">
-	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
-	<link rel="shortcut icon" href="/favicon.ico">
+	<link rel="apple-touch-icon" sizes="180x180" href="https://erak.github.io/deep-dance-website/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://erak.github.io/deep-dance-website/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://erak.github.io/deep-dance-website/favicon-16x16.png">
+	<link rel="manifest" href="https://erak.github.io/deep-dance-website/site.webmanifest">
+	<link rel="mask-icon" href="https://erak.github.io/deep-dance-website/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="https://erak.github.io/deep-dance-website/favicon.ico">
 
-	<title>Explore the Code</title>
-	<link rel="alternate" type="application/rss+xml" href="https://deep.dance/code/index.xml" title="Explore the Code" />
-	<link rel="stylesheet" href="https://deep.dance/css/style.min.27900b73463dcea2e8fdd50c30d52ff4a5c5eb3be553817324ca0350e7118a11.css" integrity="sha256-J5ALc0Y9zqLo/dUMMNUv9KXF6zvlU4FzJMoDUOcRihE=" crossorigin="anonymous">
+	<title>Read more about the code</title>
+	<link rel="alternate" type="application/rss+xml" href="https://erak.github.io/deep-dance-website/code/index.xml" title="Read more about the code" />
+	<link rel="stylesheet" href="https://erak.github.io/deep-dance-website/css/style.min.b26cb43d3c9e26fb99e495378f5ef3dec4cd00635c37e84c036f8207c915d70c.css" integrity="sha256-smy0PTyeJvuZ5JU3j17z3sTNAGNcN+hMA2+CB8kV1ww=" crossorigin="anonymous">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </head>
@@ -34,23 +33,97 @@
 	
     <div id="gallery">
         <div id="home-content" class="container">
-            <h1 class="text-big"><a href="https://deep.dance#exhibits" class="back-link">←</a>Explore the Code</h1>
-            <div class="content text-small">
+            <h1 class="text-big"><a href="https://erak.github.io/deep-dance-website/#exhibits" class="back-link">←</a>Read more about the code</h1>
+            <div class="content">
+                <h1 id="quicklinks">Quicklinks</h1>
+<ul>
+<li><a href="#overview">Overview →</a></li>
+<li><a href="#machine-learning">Machine Learning →</a></li>
+<li><a href="#light-animation">Light animation →</a></li>
+</ul>
+<br/>
+<br/>
+<h1 id="overview">Overview</h1>
+<p>The core software component of Deep.Dance is a system, that uses machine learning to study existing and create new movement sequences. In order to visualize these newly created movement sequences a web-based component, that could render them, was developed. An additional web-based component, that can control and animate a LED light setup on stage, was also to the set of components.</p>
+<h1 id="machine-learning">Machine Learning</h1>
+<p>The purpose of the main software component was to extract movement sequences from existing video recordings, train a neural network such that it can predict subsequent movements and generate new movement sequences from arbitrary input movements. This resulted in a pipeline design that involved the stages described in the sections below.</p>
+<h2 id="dataset">Dataset</h2>
+<p>First of all, a dataset that is needed for the training of the neural network was created. Since the aim was to create new movement sequences, it was decided to use an image-based approach and record videos of several predefined movement qualities done by several dancers. These videos are then fed into the first stage of the pipeline which uses the software libraries <a href="https://github.com/facebookresearch/detectron2">Detectron2 →</a> and <a href="https://github.com/facebookresearch/VideoPose3D">VideoPose3D →</a> to analyse all videos frame by frame and extract movement information in the form of keypoints. These keypoints are a representation of movement information of a human body. The following figure illustrates this by a rendering of extracted keypoints for the very same frame of an input video:</p>
+<p><img src="https://erak.github.io/deep-dance-website/code_single_01.png#img-small" alt="">
+<img src="https://erak.github.io/deep-dance-website/code_single_02.png#img-small" alt=""></p>
+<p>Since a video contains of a time series of frames, the result of the extraction process is also a time series, but of keypoints instead of frames.</p>
+<p>Please refer to the <a href="https://github.com/deep-dance/core/">Github →</a> documentation for more information.</p>
+<h3 id="software">Software</h3>
+<ul>
+<li><a href="https://github.com/facebookresearch/detectron2">Detectron2 →</a></li>
+<li><a href="https://github.com/facebookresearch/VideoPose3D">VideoPose3D →</a></li>
+</ul>
+<br/>
+<h2 id="training">Training</h2>
+<p>In the next stage, the previously extracted keypoint sequences are used to train a neural network we developed, in order to generate new keypoint sequences. This was achieved by using a recurrent neural network design. These networks can analyze given time series and make predictions about the most likely next value in such a time series. Below, we extracted a snippet from the production code which creates and trains our neural network when executed:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x, y <span style="color:#f92672">=</span> get_training_data(
+    dancers<span style="color:#f92672">=</span>selected_dancers,
+    tags<span style="color:#f92672">=</span>selected_tags,
+    look_back<span style="color:#f92672">=</span>look_back,
+    normalize_body<span style="color:#f92672">=</span>normalize_body,
+    hip_correction<span style="color:#f92672">=</span>hip_correction,
+    add_kinetic_energy<span style="color:#f92672">=</span>kinetic)
+
+x_train, x_test, y_train, y_test <span style="color:#f92672">=</span> train_test_split(
+        x, y, 
+        test_size<span style="color:#f92672">=</span>test_size,
+        shuffle<span style="color:#f92672">=</span>True,
+        random_state<span style="color:#f92672">=</span>random_state)
+
+model <span style="color:#f92672">=</span> DeepDanceModel(
+    look_back<span style="color:#f92672">=</span>look_back,
+    lstm_layers<span style="color:#f92672">=</span>lstm_layer,
+    mdn_layers<span style="color:#f92672">=</span>mdn_layer,
+    validation_split<span style="color:#f92672">=</span>validation_split,
+    kinetic<span style="color:#f92672">=</span>kinetic)
+
+model<span style="color:#f92672">.</span>train(
+    x, y,
+    epochs<span style="color:#f92672">=</span>epochs,
+    batch_size<span style="color:#f92672">=</span>batch_size)
+</code></pre></div><br/>
+<h3 id="software-1">Software</h3>
+<ul>
+<li><a href="https://www.tensorflow.org/">Tensorflow →</a></li>
+<li><a href="https://keras.io/">Keras →</a></li>
+</ul>
+<br/>
+<h2 id="visualization">Visualization</h2>
+<p>Since the aim of Deep.Dance was to have human dancers perform generated movement sequences, there was a need for a tool that could create a visual representation of these sequences. This tool facilitated the learning process by providing a sequence player with controls known from video players, such as play, pause etc.</p>
+<p><img src="https://erak.github.io/deep-dance-website/aboutCoding.jpg" alt=""></p>
+<p>Please refer to the <a href="https://github.com/deep-dance/visualizer/">Github →</a> documentation for more information.</p>
+<h3 id="software-2">Software</h3>
+<ul>
+<li><a href="https://threejs.org/">Three.js →</a></li>
+</ul>
+<br/>
+<br/>
+<h1 id="light-animation">Light animation</h1>
+<p>The stage design of Deep.Dance required a custom light control system that was able to animate LED lights based on the keypoint position in the created movement sequences.</p>
+<p>Read more and get the code on <a href="https://github.com/deep-dance/lights">Github →</a>.</p>
+
                 
                 
             </div>
         </div>
         	<div id="footer" class="text-tiny">
-		<a href="impress">Impress</a>
+		<a href="mailto:mail@jaschaviehstaedt.com">Contact</a>
 		|
-		<a href="privacy">Privacy</a>
+		<a href="https://erak.github.io/deep-dance-website/impress">Impress</a>
+		|
+		<a href="https://erak.github.io/deep-dance-website/privacy">Privacy</a>
 	</div>
 
     </div>
     
 
 
-	<script src="https://deep.dance/js/bundle.min.c721de08d656164bb0683f45ba2884603ca9565bd2ed837211f36139cc13644f.js" integrity="sha256-xyHeCNZWFkuwaD9FuiiEYDypVlvS7YNyEfNhOcwTZE8=" crossorigin="anonymous"></script>
+	<script src="https://erak.github.io/deep-dance-website/js/bundle.min.35ce9962c77e257c54debcf9189a0e9e112b43fe4d994ec9b19258640c69b764.js" integrity="sha256-Nc6ZYsd+JXxU3rz5GJoOnhErQ/5NmU7JsZJYZAxpt2Q=" crossorigin="anonymous"></script>
 	
 <script type="text/javascript">
     var _paq = window._paq || [];
